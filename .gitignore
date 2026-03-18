@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environment variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+redisdata/
+
+# Project-specific ignores
+AGENTS.md
+repo_context.md
+state/
+adrs/
+docs/
+tasks/
+examples/
+scripts/
+
+# Ignore all Markdown files at root (except README.md)
+/*.md
+!README.md
+
+# Ignore GitHub workflows (if not needed in repo)
+.github/

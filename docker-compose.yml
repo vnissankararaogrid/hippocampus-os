@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    restart: unless-stopped
+
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HIPPORC_REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    command: python examples/demo_loop_breaker.py
+
+volumes:
+  redisdata:
