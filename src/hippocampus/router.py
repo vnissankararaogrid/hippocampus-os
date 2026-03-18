@@ -48,7 +48,8 @@ class RouteResult:
 # Deterministic patterns — no LLM needed, <5ms
 PATTERNS: dict[FailureType, list[re.Pattern[str]]] = {
     FailureType.AUTH_EXPIRED: [
-        re.compile(r"40[13]\s*(forbidden|unauthorized|auth)", re.I),
+        re.compile(r"401\s*(forbidden|unauthorized|auth)", re.I),
+        re.compile(r"authentication.*required|auth.*required", re.I),
         re.compile(r"auth.*expir", re.I),
         re.compile(r"token.*invalid|invalid.*token", re.I),
         re.compile(r"credentials.*expired|expired.*credentials", re.I),
