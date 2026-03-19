@@ -2,8 +2,12 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from .config import HippocampusConfig
-from .graph import EpisodicGraph
+
+if TYPE_CHECKING:
+    from .graph import EpisodicGraph
 
 
 class TemporalInhibitor:

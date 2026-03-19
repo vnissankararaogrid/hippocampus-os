@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import time
 from dataclasses import asdict, dataclass, field
-from typing import Optional
 
 import redis
 
@@ -242,7 +241,7 @@ class EpisodicGraph:
                 )
         return failures
 
-    def check_action_failed_recently(self, action: str) -> Optional[dict]:
+    def check_action_failed_recently(self, action: str) -> dict | None:
         """Check if a specific action failed recently.
 
         THE key query for loop prevention: "Did the action I'm about
