@@ -42,7 +42,12 @@ AGENTS.md
 repo_context.md
 state/
 adrs/
-docs/
+docs/conventions/
+docs/temp-docs/
+docs/journal.md
+docs/product.md
+
+
 tasks/
 examples/
 scripts/
