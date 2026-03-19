@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
 
-from .compiler import StateGuardCompiler
 from .config import HippocampusConfig
 from .exceptions import InjectionError
-from .graph import EpisodicGraph
-from .inhibitor import TemporalInhibitor
-from .router import RouteResult, StateRouter
+
+if TYPE_CHECKING:
+    from .compiler import StateGuardCompiler
+    from .graph import EpisodicGraph
+    from .inhibitor import TemporalInhibitor
+    from .router import RouteResult, StateRouter
 
 logger = logging.getLogger(__name__)
 

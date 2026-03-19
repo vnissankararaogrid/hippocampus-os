@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import logging
-
-from openai import OpenAI
+from typing import TYPE_CHECKING
 
 from .compiler import StateGuardCompiler
+
+if TYPE_CHECKING:
+    from openai import OpenAI
 from .config import HippocampusConfig
 from .graph import EpisodicGraph
 from .inhibitor import TemporalInhibitor

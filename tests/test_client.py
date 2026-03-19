@@ -31,8 +31,8 @@ class TestHippocampusInit:
         mock_client = MagicMock()
         with patch(
             "hippocampus.client.EpisodicGraph"
-        ) as MockGraph:
-            MockGraph.return_value.redis = fake_redis
+        ) as mock_graph:
+            mock_graph.return_value.redis = fake_redis
             hippo = Hippocampus(
                 client=mock_client, agent_id="test_agent"
             )
@@ -47,8 +47,8 @@ class TestHippocampusInit:
         )
         with patch(
             "hippocampus.client.EpisodicGraph"
-        ) as MockGraph:
-            MockGraph.return_value.redis = fake_redis
+        ) as mock_graph:
+            mock_graph.return_value.redis = fake_redis
             hippo = Hippocampus(
                 client=mock_client,
                 agent_id="test_agent",
@@ -60,8 +60,8 @@ class TestHippocampusInit:
         mock_client = MagicMock()
         with patch(
             "hippocampus.client.EpisodicGraph"
-        ) as MockGraph:
-            MockGraph.return_value.redis = fake_redis
+        ) as mock_graph:
+            mock_graph.return_value.redis = fake_redis
             hippo = Hippocampus(
                 client=mock_client, agent_id="test_agent"
             )
@@ -82,16 +82,16 @@ class TestHippocampusCreate:
 
         with patch(
             "hippocampus.client.EpisodicGraph"
-        ) as MockGraph:
-            MockGraph.return_value.redis = fake_redis
-            MockGraph.return_value.get_recent_failures.return_value = []
-            MockGraph.return_value.add_success.return_value = "action_123"
+        ) as mock_graph:
+            mock_graph.return_value.redis = fake_redis
+            mock_graph.return_value.get_recent_failures.return_value = []
+            mock_graph.return_value.add_success.return_value = "action_123"
 
             hippo = Hippocampus(
                 client=mock_client, agent_id="test_agent"
             )
 
-            response = hippo.chat.completions.create(
+            hippo.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
                     {"role": "user", "content": "Hello"},
